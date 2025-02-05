@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message Address {
+    string city = 1;
+    string street = 2;
+}
+
+message Person {
+    string first_name = 1;
+    optional string last_name = 2;
+    repeated string nick_names = 3;
+
+    int32 age = 4;
+    optional int32 number_of_fingers = 5;
+    repeated int32 favourite_numbers = 6;
+
+    Address address_home = 7;
+    optional Address address_work = 8;
+    repeated Address favourite_places = 9;
+}

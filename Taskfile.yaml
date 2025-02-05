@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  protoc:
+    cmd: python -m grpc_tools.protoc --proto_path=src/ --pyi_out=src/ --python_out=src/ src/protobuf_tests/protos/messages.proto
+
+  lint:
+    cmds:
+      - uv run ruff check . --fix --show-fixes
+      - uv run black .
+      - uv run ruff check . --fix --show-fixes
+      - uv run mypy .
+      - uv run isort .
+
+  test:
+    cmds:
+      - "pytest tests/"
